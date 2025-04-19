@@ -1,3 +1,85 @@
+
+### crear el proyecto
+>- composer create-project laravel/laravel nombre-proyecto "10.*"
+>- cd nombre-proyecto
+
+### agregar libreria para base de datos
+>- composer require doctrine/dbal
+
+### instalar GraphQL
+>- composer require rebing/graphql-laravel
+>- php artisan vendor:publish --provider="Rebing\GraphQL\GraphQLServiceProvider"
+
+### Swagger con laravel
+>- composer require "darkaonline/l5-swagger"
+>- php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+
+### para generar la documentación swagger
+>- php artisan l5-swagger:generate
+
+### crear entidad users
+>- php artisan make:model User -m
+
+### crear controlador para users
+>- php artisan make:controller Api/UserController
+
+### graphql para users
+>- composer require rebing/graphql-laravel
+>- php artisan vendor:publish --provider="Rebing\GraphQL\GraphQLServiceProvider"
+
+
+
+### sql server
+>- https://github.com/Microsoft/msphpsql/releases
+
+### comandos para generar las migraciones
+>- php artisan migrate
+>- php artisan migrate:rollback
+>- php artisan migrate:reset
+>- php artisan migrate:refresh
+
+###
+>- ALTER TABLE users 
+>- ALTER COLUMN created_at DATETIME2;
+>- ALTER TABLE users 
+>- ALTER COLUMN updated_at DATETIME2;
+
+
+### probar aplicativo
+>- php artisan serve
+
+### Por defecto, Laravel se ejecutará en:
+>- http://127.0.0.1:8000
+
+### 2. Probar API REST con Swagger
+### Paso 1: Generar la documentación Swagger
+>- php artisan l5-swagger:generate
+
+### Paso 2: Acceder a la documentación
+>- http://127.0.0.1:8000/api/documentation
+
+### 3. Probar la API GraphQL
+>- http://127.0.0.1:8000/graphql
+
+### graphql probar en postman
+query {
+  users {
+    id
+    name
+    email
+  }
+}
+
+### mutation para crear un usuario
+mutation {
+  createUser(name: "Juan", email: "juan@example.com", password: "secret123") {
+    id
+    name
+    email
+  }
+}
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
